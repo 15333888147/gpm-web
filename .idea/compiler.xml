@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="springcloud-gpm-api" />
+        <module name="springcloud-gpm-consumer" />
+        <module name="springcloud-gpm-mapper" />
+        <module name="springcloud-gpm-model" />
+        <module name="springcloud-gpm-provider" />
+        <module name="springcloud-gpm-service" />
+        <module name="springcloud-gpm-zuul" />
+        <module name="springcloudgpmeureka7001" />
+        <module name="springcloudgpmeureka7002" />
+      </profile>
+      <profile name="Annotation profile for gpm-web" enabled="true">
+        <sourceOutputDir name="../springcloud-gpm-eureka-7001/target/generated-sources/annotations" />
+        <sourceTestOutputDir name="../springcloud-gpm-eureka-7001/target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="springcloud-gpm-eureka-7003" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>
