@@ -14,6 +14,7 @@
         <module>springcloud-gpm-provider</module>
         <module>springcloud-gpm-consumer</module>
         <module>springcloud-gpm-zuul</module>
+        <module>springcloud-gpm-config</module>
     </modules>
 
 
