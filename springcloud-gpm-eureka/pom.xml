@@ -12,9 +12,9 @@
     <artifactId>springcloud-gpm-eureka</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>springcloud-gpm-eureka-7001</module>
-        <module>springcloud-gpm-eureka-7002</module>
-        <module>springcloud-gpm-eureka-7003</module>
+        <module>springcloud-gpm-eureka01-7001</module>
+        <module>springcloud-gpm-eureka02-7002</module>
+        <module>springcloud-gpm-eureka03-7003</module>
     </modules>
 
 
