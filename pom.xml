@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.zj.springcloud</groupId>
+    <artifactId>gpm-web</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>springcloud-gpm-management</module>
+        <module>springcloud-gpm-eureka</module>
+        <module>springcloud-gpm-provider</module>
+        <module>springcloud-gpm-consumer</module>
+        <module>springcloud-gpm-zuul</module>
+    </modules>
+
+
+</project>
