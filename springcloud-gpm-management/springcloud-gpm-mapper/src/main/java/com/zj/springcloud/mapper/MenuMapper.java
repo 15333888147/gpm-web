@@ -19,4 +19,11 @@ public interface MenuMapper {
      */
     List<TMenu> selectFirstMenu(Long id);
 
+    /**
+     * 二级菜单
+     * @param menuId
+     * @return
+     */
+    List<TMenu> selectSecondMenu(Long menuId);
+
 }

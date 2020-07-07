@@ -18,4 +18,7 @@ public interface SpringcloudGpmService {
     @GetMapping("/firstMenu")
     List<TMenu> firstMenu(@RequestParam("id") Long id);
 
+    @GetMapping("/secondMenu")
+    List<TMenu> secondMenu(@RequestParam("menuId") Long menuId);
+
 }

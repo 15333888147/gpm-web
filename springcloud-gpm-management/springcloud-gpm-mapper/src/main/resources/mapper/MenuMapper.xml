@@ -23,4 +23,7 @@
     on ur.ROLE_ID = rm.ROLE_ID
     where rm.MENU_ID = m.MENU_ID and m.PARENT_ID=0
   </select>
+    <select id="selectSecondMenu" resultMap="BaseResultMap">
+        select * from t_menu where PARENT_ID=#{menuId}
+    </select>
 </mapper>

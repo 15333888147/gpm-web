@@ -20,4 +20,8 @@ public class MenuService {
     public List<TMenu> selectFirstMenu(Long id){
         return menuMapper.selectFirstMenu(id);
     }
+
+    public List<TMenu> selectSecondMenu(Long menuId){
+        return menuMapper.selectSecondMenu(menuId);
+    }
 }

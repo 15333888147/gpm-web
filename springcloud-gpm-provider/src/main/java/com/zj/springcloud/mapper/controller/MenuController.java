@@ -22,4 +22,9 @@ public class MenuController {
        return menuService.selectFirstMenu(id);
     }
 
+    @GetMapping("/secondMenu")
+    public List<TMenu> secondMenu(Long menuId){
+        return menuService.selectSecondMenu(menuId);
+    }
+
 }
