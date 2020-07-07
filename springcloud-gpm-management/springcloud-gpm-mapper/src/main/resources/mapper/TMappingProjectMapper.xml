@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zj.springcloud.mapper.TMappingProjectMapper">
+  <resultMap id="BaseResultMap" type="com.zj.springcloud.model.TMappingProject">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="project_type" jdbcType="VARCHAR" property="projectType" />
+    <result column="project_name" jdbcType="VARCHAR" property="projectName" />
+    <result column="project_amount" jdbcType="DOUBLE" property="projectAmount" />
+    <result column="project_leader" jdbcType="VARCHAR" property="projectLeader" />
+    <result column="start_date" jdbcType="VARCHAR" property="startDate" />
+    <result column="end_date" jdbcType="VARCHAR" property="endDate" />
+    <result column="complete_time" jdbcType="VARCHAR" property="completeTime" />
+    <result column="acceptance_department" jdbcType="VARCHAR" property="acceptanceDepartment" />
+    <result column="acceptance_report" jdbcType="VARCHAR" property="acceptanceReport" />
+    <result column="task_source" jdbcType="VARCHAR" property="taskSource" />
+    <result column="project_area" jdbcType="DOUBLE" property="projectArea" />
+    <result column="scale" jdbcType="VARCHAR" property="scale" />
+    <result column="sheet_number" jdbcType="VARCHAR" property="sheetNumber" />
+    <result column="awards_department" jdbcType="VARCHAR" property="awardsDepartment" />
+    <result column="prize_level" jdbcType="VARCHAR" property="prizeLevel" />
+    <result column="project_quality_approval" jdbcType="VARCHAR" property="projectQualityApproval" />
+    <result column="winning_time" jdbcType="VARCHAR" property="winningTime" />
+    <result column="acceptance_time" jdbcType="VARCHAR" property="acceptanceTime" />
+    <result column="basic_content" jdbcType="VARCHAR" property="basicContent" />
+    <result column="credit_status" jdbcType="VARCHAR" property="creditStatus" />
+    <result column="submit_status" jdbcType="VARCHAR" property="submitStatus" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="schedule" jdbcType="INTEGER" property="schedule" />
+    <result column="create_time" jdbcType="VARCHAR" property="createTime" />
+    <result column="modify_time" jdbcType="VARCHAR" property="modifyTime" />
+    <result column="memo" jdbcType="VARCHAR" property="memo" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="audit_status" jdbcType="INTEGER" property="auditStatus" />
+    <result column="results_status" jdbcType="INTEGER" property="resultsStatus" />
+    <result column="meridian" jdbcType="VARCHAR" property="meridian" />
+    <result column="coordinate_system" jdbcType="VARCHAR" property="coordinateSystem" />
+    <result column="management_level" jdbcType="VARCHAR" property="managementLevel" />
+    <result column="funding_source" jdbcType="VARCHAR" property="fundingSource" />
+    <result column="entrust_unit" jdbcType="VARCHAR" property="entrustUnit" />
+    <result column="accept_unit" jdbcType="VARCHAR" property="acceptUnit" />
+    <result column="mobile_phone" jdbcType="VARCHAR" property="mobilePhone" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="center_point" jdbcType="VARCHAR" property="centerPoint" />
+    <result column="synchronization_status" jdbcType="INTEGER" property="synchronizationStatus" />
+    <result column="contract_time" jdbcType="VARCHAR" property="contractTime" />
+    <result column="coordinate" jdbcType="LONGVARCHAR" property="coordinate" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_mapping_project
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.zj.springcloud.model.TMappingProject">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_mapping_project (project_type, project_name, project_amount, 
+      project_leader, start_date, end_date, 
+      complete_time, acceptance_department, acceptance_report, 
+      task_source, project_area, scale, 
+      sheet_number, awards_department, prize_level, 
+      project_quality_approval, winning_time, acceptance_time, 
+      basic_content, credit_status, submit_status, 
+      user_id, schedule, create_time, 
+      modify_time, memo, status, 
+      audit_status, results_status, meridian, 
+      coordinate_system, management_level, funding_source, 
+      entrust_unit, accept_unit, mobile_phone, 
+      phone, address, center_point, 
+      synchronization_status, contract_time, coordinate
+      )
+    values (#{projectType,jdbcType=VARCHAR}, #{projectName,jdbcType=VARCHAR}, #{projectAmount,jdbcType=DOUBLE}, 
+      #{projectLeader,jdbcType=VARCHAR}, #{startDate,jdbcType=VARCHAR}, #{endDate,jdbcType=VARCHAR}, 
+      #{completeTime,jdbcType=VARCHAR}, #{acceptanceDepartment,jdbcType=VARCHAR}, #{acceptanceReport,jdbcType=VARCHAR}, 
+      #{taskSource,jdbcType=VARCHAR}, #{projectArea,jdbcType=DOUBLE}, #{scale,jdbcType=VARCHAR}, 
+      #{sheetNumber,jdbcType=VARCHAR}, #{awardsDepartment,jdbcType=VARCHAR}, #{prizeLevel,jdbcType=VARCHAR}, 
+      #{projectQualityApproval,jdbcType=VARCHAR}, #{winningTime,jdbcType=VARCHAR}, #{acceptanceTime,jdbcType=VARCHAR}, 
+      #{basicContent,jdbcType=VARCHAR}, #{creditStatus,jdbcType=VARCHAR}, #{submitStatus,jdbcType=VARCHAR}, 
+      #{userId,jdbcType=BIGINT}, #{schedule,jdbcType=INTEGER}, #{createTime,jdbcType=VARCHAR}, 
+      #{modifyTime,jdbcType=VARCHAR}, #{memo,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
+      #{auditStatus,jdbcType=INTEGER}, #{resultsStatus,jdbcType=INTEGER}, #{meridian,jdbcType=VARCHAR}, 
+      #{coordinateSystem,jdbcType=VARCHAR}, #{managementLevel,jdbcType=VARCHAR}, #{fundingSource,jdbcType=VARCHAR}, 
+      #{entrustUnit,jdbcType=VARCHAR}, #{acceptUnit,jdbcType=VARCHAR}, #{mobilePhone,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{centerPoint,jdbcType=VARCHAR}, 
+      #{synchronizationStatus,jdbcType=INTEGER}, #{contractTime,jdbcType=VARCHAR}, #{coordinate,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.zj.springcloud.model.TMappingProject">
+    update t_mapping_project
+    set project_type = #{projectType,jdbcType=VARCHAR},
+      project_name = #{projectName,jdbcType=VARCHAR},
+      project_amount = #{projectAmount,jdbcType=DOUBLE},
+      project_leader = #{projectLeader,jdbcType=VARCHAR},
+      start_date = #{startDate,jdbcType=VARCHAR},
+      end_date = #{endDate,jdbcType=VARCHAR},
+      complete_time = #{completeTime,jdbcType=VARCHAR},
+      acceptance_department = #{acceptanceDepartment,jdbcType=VARCHAR},
+      acceptance_report = #{acceptanceReport,jdbcType=VARCHAR},
+      task_source = #{taskSource,jdbcType=VARCHAR},
+      project_area = #{projectArea,jdbcType=DOUBLE},
+      scale = #{scale,jdbcType=VARCHAR},
+      sheet_number = #{sheetNumber,jdbcType=VARCHAR},
+      awards_department = #{awardsDepartment,jdbcType=VARCHAR},
+      prize_level = #{prizeLevel,jdbcType=VARCHAR},
+      project_quality_approval = #{projectQualityApproval,jdbcType=VARCHAR},
+      winning_time = #{winningTime,jdbcType=VARCHAR},
+      acceptance_time = #{acceptanceTime,jdbcType=VARCHAR},
+      basic_content = #{basicContent,jdbcType=VARCHAR},
+      credit_status = #{creditStatus,jdbcType=VARCHAR},
+      submit_status = #{submitStatus,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=BIGINT},
+      schedule = #{schedule,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=VARCHAR},
+      memo = #{memo,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      audit_status = #{auditStatus,jdbcType=INTEGER},
+      results_status = #{resultsStatus,jdbcType=INTEGER},
+      meridian = #{meridian,jdbcType=VARCHAR},
+      coordinate_system = #{coordinateSystem,jdbcType=VARCHAR},
+      management_level = #{managementLevel,jdbcType=VARCHAR},
+      funding_source = #{fundingSource,jdbcType=VARCHAR},
+      entrust_unit = #{entrustUnit,jdbcType=VARCHAR},
+      accept_unit = #{acceptUnit,jdbcType=VARCHAR},
+      mobile_phone = #{mobilePhone,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      center_point = #{centerPoint,jdbcType=VARCHAR},
+      synchronization_status = #{synchronizationStatus,jdbcType=INTEGER},
+      contract_time = #{contractTime,jdbcType=VARCHAR},
+      coordinate = #{coordinate,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, project_type, project_name, project_amount, project_leader, start_date, 
+    end_date, complete_time, acceptance_department, acceptance_report, task_source, project_area, 
+    scale, sheet_number, awards_department, prize_level, project_quality_approval, winning_time, 
+    acceptance_time, basic_content, credit_status, submit_status, user_id, schedule, 
+    create_time, modify_time, memo, status, audit_status, results_status, meridian, coordinate_system, 
+    management_level, funding_source, entrust_unit, accept_unit, mobile_phone, phone, 
+    address, center_point, synchronization_status, contract_time, coordinate
+    from t_mapping_project
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, project_type, project_name, project_amount, project_leader, start_date, 
+    end_date, complete_time, acceptance_department, acceptance_report, task_source, project_area, 
+    scale, sheet_number, awards_department, prize_level, project_quality_approval, winning_time, 
+    acceptance_time, basic_content, credit_status, submit_status, user_id, schedule, 
+    create_time, modify_time, memo, status, audit_status, results_status, meridian, coordinate_system, 
+    management_level, funding_source, entrust_unit, accept_unit, mobile_phone, phone, 
+    address, center_point, synchronization_status, contract_time, coordinate
+    from t_mapping_project
+  </select>
+  <resultMap id="BaseResultMap" type="com.zj.springcloud.model.TMappingProject">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="project_type" jdbcType="VARCHAR" property="projectType" />
+    <result column="project_name" jdbcType="VARCHAR" property="projectName" />
+    <result column="project_amount" jdbcType="DOUBLE" property="projectAmount" />
+    <result column="project_leader" jdbcType="VARCHAR" property="projectLeader" />
+    <result column="start_date" jdbcType="VARCHAR" property="startDate" />
+    <result column="end_date" jdbcType="VARCHAR" property="endDate" />
+    <result column="complete_time" jdbcType="VARCHAR" property="completeTime" />
+    <result column="acceptance_department" jdbcType="VARCHAR" property="acceptanceDepartment" />
+    <result column="acceptance_report" jdbcType="VARCHAR" property="acceptanceReport" />
+    <result column="task_source" jdbcType="VARCHAR" property="taskSource" />
+    <result column="project_area" jdbcType="DOUBLE" property="projectArea" />
+    <result column="scale" jdbcType="VARCHAR" property="scale" />
+    <result column="sheet_number" jdbcType="VARCHAR" property="sheetNumber" />
+    <result column="awards_department" jdbcType="VARCHAR" property="awardsDepartment" />
+    <result column="prize_level" jdbcType="VARCHAR" property="prizeLevel" />
+    <result column="project_quality_approval" jdbcType="VARCHAR" property="projectQualityApproval" />
+    <result column="winning_time" jdbcType="VARCHAR" property="winningTime" />
+    <result column="acceptance_time" jdbcType="VARCHAR" property="acceptanceTime" />
+    <result column="basic_content" jdbcType="VARCHAR" property="basicContent" />
+    <result column="credit_status" jdbcType="VARCHAR" property="creditStatus" />
+    <result column="submit_status" jdbcType="VARCHAR" property="submitStatus" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="schedule" jdbcType="INTEGER" property="schedule" />
+    <result column="create_time" jdbcType="VARCHAR" property="createTime" />
+    <result column="modify_time" jdbcType="VARCHAR" property="modifyTime" />
+    <result column="memo" jdbcType="VARCHAR" property="memo" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="audit_status" jdbcType="INTEGER" property="auditStatus" />
+    <result column="results_status" jdbcType="INTEGER" property="resultsStatus" />
+    <result column="meridian" jdbcType="VARCHAR" property="meridian" />
+    <result column="coordinate_system" jdbcType="VARCHAR" property="coordinateSystem" />
+    <result column="management_level" jdbcType="VARCHAR" property="managementLevel" />
+    <result column="funding_source" jdbcType="VARCHAR" property="fundingSource" />
+    <result column="entrust_unit" jdbcType="VARCHAR" property="entrustUnit" />
+    <result column="accept_unit" jdbcType="VARCHAR" property="acceptUnit" />
+    <result column="mobile_phone" jdbcType="VARCHAR" property="mobilePhone" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="center_point" jdbcType="VARCHAR" property="centerPoint" />
+    <result column="synchronization_status" jdbcType="INTEGER" property="synchronizationStatus" />
+    <result column="contract_time" jdbcType="VARCHAR" property="contractTime" />
+    <result column="coordinate" jdbcType="LONGVARCHAR" property="coordinate" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_mapping_project
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.zj.springcloud.model.TMappingProject">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_mapping_project (project_type, project_name, project_amount, 
+      project_leader, start_date, end_date, 
+      complete_time, acceptance_department, acceptance_report, 
+      task_source, project_area, scale, 
+      sheet_number, awards_department, prize_level, 
+      project_quality_approval, winning_time, acceptance_time, 
+      basic_content, credit_status, submit_status, 
+      user_id, schedule, create_time, 
+      modify_time, memo, status, 
+      audit_status, results_status, meridian, 
+      coordinate_system, management_level, funding_source, 
+      entrust_unit, accept_unit, mobile_phone, 
+      phone, address, center_point, 
+      synchronization_status, contract_time, coordinate
+      )
+    values (#{projectType,jdbcType=VARCHAR}, #{projectName,jdbcType=VARCHAR}, #{projectAmount,jdbcType=DOUBLE}, 
+      #{projectLeader,jdbcType=VARCHAR}, #{startDate,jdbcType=VARCHAR}, #{endDate,jdbcType=VARCHAR}, 
+      #{completeTime,jdbcType=VARCHAR}, #{acceptanceDepartment,jdbcType=VARCHAR}, #{acceptanceReport,jdbcType=VARCHAR}, 
+      #{taskSource,jdbcType=VARCHAR}, #{projectArea,jdbcType=DOUBLE}, #{scale,jdbcType=VARCHAR}, 
+      #{sheetNumber,jdbcType=VARCHAR}, #{awardsDepartment,jdbcType=VARCHAR}, #{prizeLevel,jdbcType=VARCHAR}, 
+      #{projectQualityApproval,jdbcType=VARCHAR}, #{winningTime,jdbcType=VARCHAR}, #{acceptanceTime,jdbcType=VARCHAR}, 
+      #{basicContent,jdbcType=VARCHAR}, #{creditStatus,jdbcType=VARCHAR}, #{submitStatus,jdbcType=VARCHAR}, 
+      #{userId,jdbcType=BIGINT}, #{schedule,jdbcType=INTEGER}, #{createTime,jdbcType=VARCHAR}, 
+      #{modifyTime,jdbcType=VARCHAR}, #{memo,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
+      #{auditStatus,jdbcType=INTEGER}, #{resultsStatus,jdbcType=INTEGER}, #{meridian,jdbcType=VARCHAR}, 
+      #{coordinateSystem,jdbcType=VARCHAR}, #{managementLevel,jdbcType=VARCHAR}, #{fundingSource,jdbcType=VARCHAR}, 
+      #{entrustUnit,jdbcType=VARCHAR}, #{acceptUnit,jdbcType=VARCHAR}, #{mobilePhone,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{centerPoint,jdbcType=VARCHAR}, 
+      #{synchronizationStatus,jdbcType=INTEGER}, #{contractTime,jdbcType=VARCHAR}, #{coordinate,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.zj.springcloud.model.TMappingProject">
+    update t_mapping_project
+    set project_type = #{projectType,jdbcType=VARCHAR},
+      project_name = #{projectName,jdbcType=VARCHAR},
+      project_amount = #{projectAmount,jdbcType=DOUBLE},
+      project_leader = #{projectLeader,jdbcType=VARCHAR},
+      start_date = #{startDate,jdbcType=VARCHAR},
+      end_date = #{endDate,jdbcType=VARCHAR},
+      complete_time = #{completeTime,jdbcType=VARCHAR},
+      acceptance_department = #{acceptanceDepartment,jdbcType=VARCHAR},
+      acceptance_report = #{acceptanceReport,jdbcType=VARCHAR},
+      task_source = #{taskSource,jdbcType=VARCHAR},
+      project_area = #{projectArea,jdbcType=DOUBLE},
+      scale = #{scale,jdbcType=VARCHAR},
+      sheet_number = #{sheetNumber,jdbcType=VARCHAR},
+      awards_department = #{awardsDepartment,jdbcType=VARCHAR},
+      prize_level = #{prizeLevel,jdbcType=VARCHAR},
+      project_quality_approval = #{projectQualityApproval,jdbcType=VARCHAR},
+      winning_time = #{winningTime,jdbcType=VARCHAR},
+      acceptance_time = #{acceptanceTime,jdbcType=VARCHAR},
+      basic_content = #{basicContent,jdbcType=VARCHAR},
+      credit_status = #{creditStatus,jdbcType=VARCHAR},
+      submit_status = #{submitStatus,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=BIGINT},
+      schedule = #{schedule,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=VARCHAR},
+      memo = #{memo,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      audit_status = #{auditStatus,jdbcType=INTEGER},
+      results_status = #{resultsStatus,jdbcType=INTEGER},
+      meridian = #{meridian,jdbcType=VARCHAR},
+      coordinate_system = #{coordinateSystem,jdbcType=VARCHAR},
+      management_level = #{managementLevel,jdbcType=VARCHAR},
+      funding_source = #{fundingSource,jdbcType=VARCHAR},
+      entrust_unit = #{entrustUnit,jdbcType=VARCHAR},
+      accept_unit = #{acceptUnit,jdbcType=VARCHAR},
+      mobile_phone = #{mobilePhone,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      center_point = #{centerPoint,jdbcType=VARCHAR},
+      synchronization_status = #{synchronizationStatus,jdbcType=INTEGER},
+      contract_time = #{contractTime,jdbcType=VARCHAR},
+      coordinate = #{coordinate,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, project_type, project_name, project_amount, project_leader, start_date, 
+    end_date, complete_time, acceptance_department, acceptance_report, task_source, project_area, 
+    scale, sheet_number, awards_department, prize_level, project_quality_approval, winning_time, 
+    acceptance_time, basic_content, credit_status, submit_status, user_id, schedule, 
+    create_time, modify_time, memo, status, audit_status, results_status, meridian, coordinate_system, 
+    management_level, funding_source, entrust_unit, accept_unit, mobile_phone, phone, 
+    address, center_point, synchronization_status, contract_time, coordinate
+    from t_mapping_project
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, project_type, project_name, project_amount, project_leader, start_date, 
+    end_date, complete_time, acceptance_department, acceptance_report, task_source, project_area, 
+    scale, sheet_number, awards_department, prize_level, project_quality_approval, winning_time, 
+    acceptance_time, basic_content, credit_status, submit_status, user_id, schedule, 
+    create_time, modify_time, memo, status, audit_status, results_status, meridian, coordinate_system, 
+    management_level, funding_source, entrust_unit, accept_unit, mobile_phone, phone, 
+    address, center_point, synchronization_status, contract_time, coordinate
+    from t_mapping_project
+  </select>
+</mapper>

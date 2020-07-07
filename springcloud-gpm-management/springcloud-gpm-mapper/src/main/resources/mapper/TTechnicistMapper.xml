@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zj.springcloud.mapper.TTechnicistMapper" >
+  <resultMap id="BaseResultMap" type="com.zj.springcloud.model.TTechnicist" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="major_type" property="majorType" jdbcType="VARCHAR" />
+    <result column="id_type" property="idType" jdbcType="VARCHAR" />
+    <result column="id_number" property="idNumber" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="INTEGER" />
+    <result column="age" property="age" jdbcType="INTEGER" />
+    <result column="work_year" property="workYear" jdbcType="INTEGER" />
+    <result column="duty" property="duty" jdbcType="VARCHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="school" property="school" jdbcType="VARCHAR" />
+    <result column="graduation_date" property="graduationDate" jdbcType="DATE" />
+    <result column="degree" property="degree" jdbcType="VARCHAR" />
+    <result column="education_background" property="educationBackground" jdbcType="VARCHAR" />
+    <result column="major" property="major" jdbcType="VARCHAR" />
+    <result column="title_major" property="titleMajor" jdbcType="VARCHAR" />
+    <result column="start_time" property="startTime" jdbcType="DATE" />
+    <result column="title_time" property="titleTime" jdbcType="DATE" />
+    <result column="start_contract" property="startContract" jdbcType="DATE" />
+    <result column="end_contract" property="endContract" jdbcType="DATE" />
+    <result column="post" property="post" jdbcType="VARCHAR" />
+    <result column="mapping_year" property="mappingYear" jdbcType="INTEGER" />
+    <result column="special_post" property="specialPost" jdbcType="VARCHAR" />
+    <result column="affirm" property="affirm" jdbcType="VARCHAR" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="create_time" property="createTime" jdbcType="DATE" />
+    <result column="modify_time" property="modifyTime" jdbcType="DATE" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from t_technicist
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.zj.springcloud.model.TTechnicist" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_technicist (name, major_type, id_type, 
+      id_number, sex, age, 
+      work_year, duty, title, 
+      school, graduation_date, degree, 
+      education_background, major, title_major, 
+      start_time, title_time, start_contract, 
+      end_contract, post, mapping_year, 
+      special_post, affirm, user_id, 
+      create_time, modify_time)
+    values (#{name,jdbcType=VARCHAR}, #{majorType,jdbcType=VARCHAR}, #{idType,jdbcType=VARCHAR}, 
+      #{idNumber,jdbcType=VARCHAR}, #{sex,jdbcType=INTEGER}, #{age,jdbcType=INTEGER}, 
+      #{workYear,jdbcType=INTEGER}, #{duty,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, 
+      #{school,jdbcType=VARCHAR}, #{graduationDate,jdbcType=DATE}, #{degree,jdbcType=VARCHAR}, 
+      #{educationBackground,jdbcType=VARCHAR}, #{major,jdbcType=VARCHAR}, #{titleMajor,jdbcType=VARCHAR}, 
+      #{startTime,jdbcType=DATE}, #{titleTime,jdbcType=DATE}, #{startContract,jdbcType=DATE}, 
+      #{endContract,jdbcType=DATE}, #{post,jdbcType=VARCHAR}, #{mappingYear,jdbcType=INTEGER}, 
+      #{specialPost,jdbcType=VARCHAR}, #{affirm,jdbcType=VARCHAR}, #{userId,jdbcType=BIGINT}, 
+      #{createTime,jdbcType=DATE}, #{modifyTime,jdbcType=DATE})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.zj.springcloud.model.TTechnicist" >
+    update t_technicist
+    set name = #{name,jdbcType=VARCHAR},
+      major_type = #{majorType,jdbcType=VARCHAR},
+      id_type = #{idType,jdbcType=VARCHAR},
+      id_number = #{idNumber,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=INTEGER},
+      age = #{age,jdbcType=INTEGER},
+      work_year = #{workYear,jdbcType=INTEGER},
+      duty = #{duty,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      school = #{school,jdbcType=VARCHAR},
+      graduation_date = #{graduationDate,jdbcType=DATE},
+      degree = #{degree,jdbcType=VARCHAR},
+      education_background = #{educationBackground,jdbcType=VARCHAR},
+      major = #{major,jdbcType=VARCHAR},
+      title_major = #{titleMajor,jdbcType=VARCHAR},
+      start_time = #{startTime,jdbcType=DATE},
+      title_time = #{titleTime,jdbcType=DATE},
+      start_contract = #{startContract,jdbcType=DATE},
+      end_contract = #{endContract,jdbcType=DATE},
+      post = #{post,jdbcType=VARCHAR},
+      mapping_year = #{mappingYear,jdbcType=INTEGER},
+      special_post = #{specialPost,jdbcType=VARCHAR},
+      affirm = #{affirm,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=BIGINT},
+      create_time = #{createTime,jdbcType=DATE},
+      modify_time = #{modifyTime,jdbcType=DATE}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select id, name, major_type, id_type, id_number, sex, age, work_year, duty, title, 
+    school, graduation_date, degree, education_background, major, title_major, start_time, 
+    title_time, start_contract, end_contract, post, mapping_year, special_post, affirm, 
+    user_id, create_time, modify_time
+    from t_technicist
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select id, name, major_type, id_type, id_number, sex, age, work_year, duty, title, 
+    school, graduation_date, degree, education_background, major, title_major, start_time, 
+    title_time, start_contract, end_contract, post, mapping_year, special_post, affirm, 
+    user_id, create_time, modify_time
+    from t_technicist
+  </select>
+</mapper>

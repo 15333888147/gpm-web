@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zj.springcloud.mapper.TLogMapper" >
+  <resultMap id="BaseResultMap" type="com.zj.springcloud.model.TLog" >
+    <id column="ID" property="id" jdbcType="BIGINT" />
+    <result column="USERNAME" property="username" jdbcType="VARCHAR" />
+    <result column="TIME" property="time" jdbcType="DECIMAL" />
+    <result column="IP" property="ip" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="location" property="location" jdbcType="VARCHAR" />
+    <result column="OPERATION" property="operation" jdbcType="LONGVARCHAR" />
+    <result column="METHOD" property="method" jdbcType="LONGVARCHAR" />
+    <result column="PARAMS" property="params" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from t_log
+    where ID = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.zj.springcloud.model.TLog" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_log (USERNAME, TIME, IP, 
+      CREATE_TIME, location, OPERATION, 
+      METHOD, PARAMS)
+    values (#{username,jdbcType=VARCHAR}, #{time,jdbcType=DECIMAL}, #{ip,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{location,jdbcType=VARCHAR}, #{operation,jdbcType=LONGVARCHAR}, 
+      #{method,jdbcType=LONGVARCHAR}, #{params,jdbcType=LONGVARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.zj.springcloud.model.TLog" >
+    update t_log
+    set USERNAME = #{username,jdbcType=VARCHAR},
+      TIME = #{time,jdbcType=DECIMAL},
+      IP = #{ip,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      location = #{location,jdbcType=VARCHAR},
+      OPERATION = #{operation,jdbcType=LONGVARCHAR},
+      METHOD = #{method,jdbcType=LONGVARCHAR},
+      PARAMS = #{params,jdbcType=LONGVARCHAR}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select ID, USERNAME, TIME, IP, CREATE_TIME, location, OPERATION, METHOD, PARAMS
+    from t_log
+    where ID = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select ID, USERNAME, TIME, IP, CREATE_TIME, location, OPERATION, METHOD, PARAMS
+    from t_log
+  </select>
+</mapper>

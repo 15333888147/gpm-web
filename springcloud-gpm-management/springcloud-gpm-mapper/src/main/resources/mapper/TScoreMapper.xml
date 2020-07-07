@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zj.springcloud.mapper.TScoreMapper" >
+  <resultMap id="BaseResultMap" type="com.zj.springcloud.model.TScore" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="score_plus" property="scorePlus" jdbcType="INTEGER" />
+    <result column="score_subtract" property="scoreSubtract" jdbcType="INTEGER" />
+    <result column="score" property="score" jdbcType="INTEGER" />
+    <result column="unit_id" property="unitId" jdbcType="BIGINT" />
+    <result column="reason" property="reason" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from t_score
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.zj.springcloud.model.TScore" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_score (score_plus, score_subtract, score, 
+      unit_id, reason, create_time, 
+      modify_time)
+    values (#{scorePlus,jdbcType=INTEGER}, #{scoreSubtract,jdbcType=INTEGER}, #{score,jdbcType=INTEGER}, 
+      #{unitId,jdbcType=BIGINT}, #{reason,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{modifyTime,jdbcType=TIMESTAMP})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.zj.springcloud.model.TScore" >
+    update t_score
+    set score_plus = #{scorePlus,jdbcType=INTEGER},
+      score_subtract = #{scoreSubtract,jdbcType=INTEGER},
+      score = #{score,jdbcType=INTEGER},
+      unit_id = #{unitId,jdbcType=BIGINT},
+      reason = #{reason,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select id, score_plus, score_subtract, score, unit_id, reason, create_time, modify_time
+    from t_score
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select id, score_plus, score_subtract, score, unit_id, reason, create_time, modify_time
+    from t_score
+  </select>
+</mapper>

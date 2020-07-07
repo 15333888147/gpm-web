@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zj.springcloud.mapper.TSpecialPostMapper" >
+  <resultMap id="BaseResultMap" type="com.zj.springcloud.model.TSpecialPost" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="id_number" property="idNumber" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="INTEGER" />
+    <result column="age" property="age" jdbcType="INTEGER" />
+    <result column="work_year" property="workYear" jdbcType="INTEGER" />
+    <result column="school" property="school" jdbcType="VARCHAR" />
+    <result column="major" property="major" jdbcType="VARCHAR" />
+    <result column="education_background" property="educationBackground" jdbcType="VARCHAR" />
+    <result column="degree" property="degree" jdbcType="VARCHAR" />
+    <result column="special_post" property="specialPost" jdbcType="VARCHAR" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="create_time" property="createTime" jdbcType="DATE" />
+    <result column="modify_time" property="modifyTime" jdbcType="DATE" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from t_special_post
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.zj.springcloud.model.TSpecialPost" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_special_post (name, id_number, sex, 
+      age, work_year, school, 
+      major, education_background, degree, 
+      special_post, user_id, create_time, 
+      modify_time)
+    values (#{name,jdbcType=VARCHAR}, #{idNumber,jdbcType=VARCHAR}, #{sex,jdbcType=INTEGER}, 
+      #{age,jdbcType=INTEGER}, #{workYear,jdbcType=INTEGER}, #{school,jdbcType=VARCHAR}, 
+      #{major,jdbcType=VARCHAR}, #{educationBackground,jdbcType=VARCHAR}, #{degree,jdbcType=VARCHAR}, 
+      #{specialPost,jdbcType=VARCHAR}, #{userId,jdbcType=BIGINT}, #{createTime,jdbcType=DATE}, 
+      #{modifyTime,jdbcType=DATE})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.zj.springcloud.model.TSpecialPost" >
+    update t_special_post
+    set name = #{name,jdbcType=VARCHAR},
+      id_number = #{idNumber,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=INTEGER},
+      age = #{age,jdbcType=INTEGER},
+      work_year = #{workYear,jdbcType=INTEGER},
+      school = #{school,jdbcType=VARCHAR},
+      major = #{major,jdbcType=VARCHAR},
+      education_background = #{educationBackground,jdbcType=VARCHAR},
+      degree = #{degree,jdbcType=VARCHAR},
+      special_post = #{specialPost,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=BIGINT},
+      create_time = #{createTime,jdbcType=DATE},
+      modify_time = #{modifyTime,jdbcType=DATE}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select id, name, id_number, sex, age, work_year, school, major, education_background, 
+    degree, special_post, user_id, create_time, modify_time
+    from t_special_post
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select id, name, id_number, sex, age, work_year, school, major, education_background, 
+    degree, special_post, user_id, create_time, modify_time
+    from t_special_post
+  </select>
+</mapper>
