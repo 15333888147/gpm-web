@@ -11,5 +11,14 @@
 
     <artifactId>springcloud-gpm-service</artifactId>
 
-
+    <dependencies>
+        <!--
+            依赖于mapper
+        -->
+        <dependency>
+            <groupId>com.zj.springcloud</groupId>
+            <artifactId>springcloud-gpm-mapper</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 </project>

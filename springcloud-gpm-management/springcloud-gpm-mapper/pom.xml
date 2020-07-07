@@ -11,5 +11,27 @@
 
     <artifactId>springcloud-gpm-mapper</artifactId>
 
+    <dependencies>
+        <!--
+            依赖于model
+        -->
+        <dependency>
+            <groupId>com.zj.springcloud</groupId>
+            <artifactId>springcloud-gpm-model</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
 
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+        </dependency>
+    </dependencies>
 </project>
